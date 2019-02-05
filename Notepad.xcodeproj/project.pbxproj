@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC3C995F22034D2F00A1C6AD /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3C995E22034D2F00A1C6AD /* ListTableViewController.swift */; };
+		AC3C996122034D8B00A1C6AD /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3C996022034D8B00A1C6AD /* Cells.swift */; };
+		AC3C996422035BB400A1C6AD /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3C996322035BB400A1C6AD /* Texts.swift */; };
 		ACE556CA2202F314007A8D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE556C92202F314007A8D1D /* AppDelegate.swift */; };
 		ACE556CC2202F314007A8D1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE556CB2202F314007A8D1D /* ViewController.swift */; };
 		ACE556CF2202F314007A8D1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACE556CD2202F314007A8D1D /* Main.storyboard */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC3C995E22034D2F00A1C6AD /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		AC3C996022034D8B00A1C6AD /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
+		AC3C996322035BB400A1C6AD /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		ACE556C62202F314007A8D1D /* Notepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE556C92202F314007A8D1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACE556CB2202F314007A8D1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +41,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC3C996222035AE400A1C6AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AC3C996322035BB400A1C6AD /* Texts.swift */,
+				AC3C996022034D8B00A1C6AD /* Cells.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AC3C996522035BE300A1C6AD /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				ACE556C92202F314007A8D1D /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		AC3C996622035BF700A1C6AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACE556CB2202F314007A8D1D /* ViewController.swift */,
+				AC3C995E22034D2F00A1C6AD /* ListTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		ACE556BD2202F314007A8D1D = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +86,13 @@
 		ACE556C82202F314007A8D1D /* Notepad */ = {
 			isa = PBXGroup;
 			children = (
-				ACE556C92202F314007A8D1D /* AppDelegate.swift */,
-				ACE556CB2202F314007A8D1D /* ViewController.swift */,
+				AC3C996522035BE300A1C6AD /* AppDelegate */,
+				AC3C996622035BF700A1C6AD /* ViewControllers */,
+				AC3C996222035AE400A1C6AD /* Model */,
 				ACE556CD2202F314007A8D1D /* Main.storyboard */,
-				ACE556D02202F315007A8D1D /* Assets.xcassets */,
 				ACE556D22202F315007A8D1D /* LaunchScreen.storyboard */,
 				ACE556D52202F315007A8D1D /* Info.plist */,
+				ACE556D02202F315007A8D1D /* Assets.xcassets */,
 			);
 			path = Notepad;
 			sourceTree = "<group>";
@@ -135,7 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3C995F22034D2F00A1C6AD /* ListTableViewController.swift in Sources */,
+				AC3C996122034D8B00A1C6AD /* Cells.swift in Sources */,
 				ACE556CC2202F314007A8D1D /* ViewController.swift in Sources */,
+				AC3C996422035BB400A1C6AD /* Texts.swift in Sources */,
 				ACE556CA2202F314007A8D1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +319,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SP8ZAT56L5;
 				INFOPLIST_FILE = Notepad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +337,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SP8ZAT56L5;
 				INFOPLIST_FILE = Notepad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
