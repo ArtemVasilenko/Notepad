@@ -2,9 +2,10 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var namesCell = Cell()
+    //var namesCell = Cell()
     var text = Texts()
     var boldIsOn = true
+    //var tableVC = ListTableViewController()
     
     func addNotes (_ name: String, _ body: String) {
         text.arrTexts[name] = body
@@ -38,22 +39,26 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    
     @IBAction func buttonSave(_ sender: UIButton) {
+        let firstWord = txtView.text.components(separatedBy: " ").first
+        print(firstWord!)
         
-        addNotes(txtView.text, txtView.text)
+        addNotes(firstWord!, txtView.text)
         print(text.arrTexts)
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let tableVC = storyBoard.instantiateViewController(withIdentifier: "tableVC") as! ListTableViewController
-        let navigationController = UINavigationController(rootViewController: tableVC)
-        self.present(navigationController, animated: true, completion: nil)
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let tableVC = storyBoard.instantiateViewController(withIdentifier: "tableVC") as! ListTableViewController
+//        let navigationController = UINavigationController(rootViewController: tableVC)
+//        self.present(navigationController, animated: true, completion: nil)
         
-        tableVC.namesCell = self.namesCell
-        tableVC.text = self.text
-        print(self.text.arrTexts)
-        print(tableVC.text.arrTexts)
+        //tableVC.namesCell = self.namesCell
+        //tableVC.text = self.text
+//        print(self.text.arrTexts)
+//        print(tableVC.text.arrTexts)
         
-        namesCell.arrNamesCells.append(txtView.text)
+        //namesCell.arrNamesCells.append(txtView.text)
         
     }
 }

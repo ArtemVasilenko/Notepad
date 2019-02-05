@@ -1,8 +1,6 @@
 
 import UIKit
 
-
-
 class ListTableViewController: UITableViewController {
     var namesCell = Cell()
     var text = Texts()
@@ -16,10 +14,8 @@ class ListTableViewController: UITableViewController {
         namesCell.arrNamesCells.append("new cell")
         let indexPath = IndexPath(row: namesCell.arrNamesCells.count - 1, section: 0)
         tableView.beginUpdates()
-        
-tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.insertRows(at: [indexPath], with: .automatic)
         tableView.endUpdates()
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -52,10 +48,8 @@ tableView.insertRows(at: [indexPath], with: .automatic)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVC" {
             let vc = segue.destination as! ViewController
-            vc.text = self.text
-            
+            vc.text.arrTexts = self.text.arrTexts
         }
-        
     }
     
     
