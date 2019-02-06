@@ -2,14 +2,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-    //var namesCell = Cell()
-    var text = Texts()
     var boldIsOn = true
-    //var tableVC = ListTableViewController()
-    
-    func addNotes (_ name: String, _ body: String) {
-        text.arrTexts[name] = body
-    }
+    var note = Note()
     
     @IBOutlet weak var boldButton: UIButton!
     @IBOutlet weak var txtView: UITextView!
@@ -20,8 +14,6 @@ class ViewController: UIViewController {
         txtView.delegate = self
         boldIsOn = false
         bold3buttonOutlet.setTitle("bold off", for: .normal)
-        print(txtView)
-        txtView.text = text.arrTexts[txtView.text]
     }
     
     
@@ -39,27 +31,44 @@ class ViewController: UIViewController {
         }
     }
     
+    //        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //            if segue.identifier == "moveToTV" {
+    //
+    //
+    //                let tableVC = segue.destination as! ListTableViewController
+    //
+    //                let firstWord = txtView.text.components(separatedBy: " ").first
+    //                print(firstWord!)
+    //
+    //                note.addNotes(firstWord!, self.txtView.text!)
+    //                print(note.notesArray)
+    //
+    //                self.note.notesArray = tableVC.nameCell.notesArray
+    //
+    //
+    //            }
+    //        }
+    
     
     
     @IBAction func buttonSave(_ sender: UIButton) {
+        
         let firstWord = txtView.text.components(separatedBy: " ").first
-        print(firstWord!)
         
-        addNotes(firstWord!, txtView.text)
-        print(text.arrTexts)
+        note.addNotes(firstWord!, self.txtView.text!)
+        print(note.notesArray)
         
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let tableVC = storyBoard.instantiateViewController(withIdentifier: "tableVC") as! ListTableViewController
-//        let navigationController = UINavigationController(rootViewController: tableVC)
-//        self.present(navigationController, animated: true, completion: nil)
         
-        //tableVC.namesCell = self.namesCell
-        //tableVC.text = self.text
-//        print(self.text.arrTexts)
-//        print(tableVC.text.arrTexts)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let tableVC = storyBoard.instantiateViewController(withIdentifier: "tableVC") as! ListTableViewController
+        self.present(tableVC, animated: true, completion: nil)
+        tableVC.nameCell = self.note
         
-        //namesCell.arrNamesCells.append(txtView.text)
         
+        //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        //        let tableVC = storyBoard.instantiateViewController(withIdentifier: "tableVC") as! ListTableViewController
+        //        let navigationController = UINavigationController(rootViewController: tableVC)
+        //        self.present(navigationController, animated: true, completion: nil)
     }
 }
 
@@ -76,26 +85,26 @@ extension ViewController: UITextViewDelegate {
     //        return true
     //    }
     
-//        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//            if boldIsOn == true {
-//                self.txtView.font = UIFont.boldSystemFont(ofSize: 16)
-//            } else {
-//                self.txtView.font = UIFont.systemFont(ofSize: 16)
-//            }
-//
-//            return true
-//        } // меняет всё
+    //        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    //            if boldIsOn == true {
+    //                self.txtView.font = UIFont.boldSystemFont(ofSize: 16)
+    //            } else {
+    //                self.txtView.font = UIFont.systemFont(ofSize: 16)
+    //            }
+    //
+    //            return true
+    //        } // меняет всё
     
-//    func textViewDidChange(_ textView: UITextView) {
-//        for i in txtView.text {
-//            if boldIsOn == true {
-//                print(i)
-//            i.font = UIFont.boldSystemFont(ofSize: 16)
-//        } else {
-//            //String(i).font = UIFont.systemFont(ofSize: 16)
-//        }
-//        }
-//    }
+    //    func textViewDidChange(_ textView: UITextView) {
+    //        for i in txtView.text {
+    //            if boldIsOn == true {
+    //                print(i)
+    //            i.font = UIFont.boldSystemFont(ofSize: 16)
+    //        } else {
+    //            //String(i).font = UIFont.systemFont(ofSize: 16)
+    //        }
+    //        }
+    //    }
     
     
 }

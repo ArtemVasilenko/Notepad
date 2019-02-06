@@ -2,17 +2,22 @@
 import UIKit
 
 class ListTableViewController: UITableViewController {
-    var namesCell = Cell()
-    var text = Texts()
-    var viewContr = ViewController()
+    
+    var nameCell = Note()
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        self.tableView.reloadData()
+//    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     @IBAction func addNewCell(_ sender: UIBarButtonItem) {
-        namesCell.arrNamesCells.append("new cell")
-        let indexPath = IndexPath(row: namesCell.arrNamesCells.count - 1, section: 0)
+        nameCell.addNotes("new cell", "hello")
+        let indexPath = IndexPath(row: nameCell.notesArray.count - 1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
         tableView.endUpdates()
@@ -24,31 +29,28 @@ class ListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return namesCell.arrNamesCells.count
+        return nameCell.notesArray.count
        
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = namesCell.arrNamesCells[indexPath.row]
+        cell.textLabel?.text = nameCell.notesArray[indexPath.row].title
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "textView")
-//        self.navigationController?.pushViewController(vc!, animated: true)
-        
-        //self.text.texts = vc.text.texts
-        //self.vc.txtView.text = text.texts[0]
+
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVC" {
+            
             let vc = segue.destination as! ViewController
-            vc.text.arrTexts = self.text.arrTexts
+            vc.note = self.nameCell
         }
     }
     

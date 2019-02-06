@@ -110,6 +110,7 @@
         <scene sceneID="p30-iN-uPR">
             <objects>
                 <navigationController id="f3p-Lt-PPt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bC5-e5-qDd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wdg-uI-2hG">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
