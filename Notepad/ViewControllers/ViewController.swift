@@ -32,56 +32,14 @@ class ViewController: UIViewController {
         }
     }
     
-    //        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //            if segue.identifier == "moveToTV" {
-    //
-    //
-    //                let tableVC = segue.destination as! ListTableViewController
-    //
-    //                let firstWord = txtView.text.components(separatedBy: " ").first
-    //                print(firstWord!)
-    //
-    //                note.addNotes(firstWord!, self.txtView.text!)
-    //                print(note.notesArray)
-    //
-    //                self.note.notesArray = tableVC.nameCell.notesArray
-    //
-    //
-    //            }
-    //        }
-    
-    
-    
-    @IBAction func buttonSave(_ sender: UIButton) {
-        
-        //        let firstWord = txtView.text.components(separatedBy: " ").first
-        //
-        //        note.addNotes(firstWord!, self.txtView.text!)
-        //        print(note.notesArray)
-        
-        
-        //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let tableVC = storyBoard.instantiateViewController(withIdentifier: "tableVC") as! ListTableViewController
-        //        self.present(tableVC, animated: true, completion: nil)
-        //        tableVC.nameCell = self.note
-        
-        
-        //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let tableVC = storyBoard.instantiateViewController(withIdentifier: "tableVC") as! ListTableViewController
-        //        let navigationController = UINavigationController(rootViewController: tableVC)
-        //        self.present(navigationController, animated: true, completion: nil)
-        //        tableVC.nameCell = self.note
-    }
 }
 
 extension ViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         let firstWord = txtView.text.components(separatedBy: " ").first
-        note = Note(title: firstWord ?? "", body: textView.text)
-//        note.title = firstWord ?? ""
-//        note.body = txtView.text
-        print(note.body)
+        self.note = Note(title: firstWord ?? "", body: textView.text)
+        print(firstWord!, note.body)
         
     }
     

@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct Note {
+class Note {
     
     var title: String
     var body: String
@@ -10,20 +10,10 @@ struct Note {
         self.body = body
         self.title = title
     }
-    
-    
-    //var notesArray: [Objects] = []
-    
-//    mutating func addNotes(_ title: String, _ body: String){
-//        notesArray.append(Objects(title: title, body: body))
-//    }
 }
 
 class ArrNotes {
     var arrNotes = [Note(title: "", body: "")]
 }
 
-//struct Objects {
-//    var title: String
-//    var body: String
-//}
+
