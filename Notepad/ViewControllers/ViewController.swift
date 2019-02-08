@@ -78,8 +78,11 @@ extension ViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         let firstWord = txtView.text.components(separatedBy: " ").first
-        note.body = txtView.text
-        note.title = firstWord!
+        note = Note(title: firstWord ?? "", body: textView.text)
+//        note.title = firstWord ?? ""
+//        note.body = txtView.text
+        print(note.body)
+        
     }
     
 }
