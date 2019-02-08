@@ -3,18 +3,22 @@ import Foundation
 
 struct Note {
     
-    struct Objects {
-        var title: String
-        var body: String
+    var title: String
+    var body: String
+    
+    init(title: String, body: String) {
+        self.body = body
+        self.title = title
     }
     
-    var notesArray: [Objects] = []
+    //var notesArray: [Objects] = []
     
-    mutating func addNotes(_ title: String, _ body: String){
-        notesArray.append(Objects(title: title, body: body))
-    }
-    
-    
-    
+//    mutating func addNotes(_ title: String, _ body: String){
+//        notesArray.append(Objects(title: title, body: body))
+//    }
 }
 
+//struct Objects {
+//    var title: String
+//    var body: String
+//}

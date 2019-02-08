@@ -24,17 +24,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZf-uv-SYl">
-                                <rect key="frame" x="167" y="437" width="43" height="36"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonSave:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R6d-Or-M3T"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JsM-Hk-Bbe">
                                 <rect key="frame" x="17" y="481" width="68" height="30"/>
                                 <state key="normal" title="Button"/>
@@ -48,11 +37,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JsM-Hk-Bbe" secondAttribute="bottom" constant="156" id="61e-QI-S6N"/>
                             <constraint firstItem="SjR-Qy-1xa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9hp-SB-gv8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JsM-Hk-Bbe" secondAttribute="trailing" constant="290" id="FZp-Rt-5tA"/>
-                            <constraint firstItem="AZf-uv-SYl" firstAttribute="top" secondItem="SjR-Qy-1xa" secondAttribute="bottom" constant="7" id="Qj9-Gj-Doq"/>
-                            <constraint firstItem="AZf-uv-SYl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="Reb-Wf-Qox"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AZf-uv-SYl" secondAttribute="trailing" constant="165" id="TF2-2T-rEH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SjR-Qy-1xa" secondAttribute="trailing" constant="16" id="hRx-v1-GzD"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AZf-uv-SYl" secondAttribute="bottom" constant="194" id="jlL-K8-vEh"/>
                             <constraint firstItem="JsM-Hk-Bbe" firstAttribute="top" secondItem="SjR-Qy-1xa" secondAttribute="bottom" constant="51" id="lke-Mv-cAO"/>
                             <constraint firstItem="SjR-Qy-1xa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="oB8-NJ-ZlF"/>
                             <constraint firstItem="JsM-Hk-Bbe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="17" id="rJI-py-V5T"/>
@@ -98,6 +83,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KRS-LB-q0l">
                             <connections>
                                 <action selector="addNewCell:" destination="kCo-sS-x5h" id="uLv-Yu-VTd"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="addNewCell" id="WA3-9T-ELR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -124,4 +110,7 @@
             <point key="canvasLocation" x="76" y="229"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WA3-9T-ELR"/>
+    </inferredMetricsTieBreakers>
 </document>

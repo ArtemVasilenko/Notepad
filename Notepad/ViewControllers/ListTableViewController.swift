@@ -3,25 +3,34 @@ import UIKit
 
 class ListTableViewController: UITableViewController {
     
-    var nameCell = Note()
+    var nameCell = [Note]()
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        self.tableView.reloadData()
-//    }
-   
+    override func viewDidAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    @IBAction func addNewCell(_ sender: UIBarButtonItem) {
-        nameCell.addNotes("new cell", "hello")
-        let indexPath = IndexPath(row: nameCell.notesArray.count - 1, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [indexPath], with: .automatic)
-        tableView.endUpdates()
-    }
+    // @IBAction func addNewCell(_ sender: UIBarButtonItem) {
+    //                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    //                let vc = storyBoard.instantiateViewController(withIdentifier: "textView") as! ViewController
+    //                self.present(vc, animated: true, completion: nil)
+    //                vc.note = Note(title: "", body: "holla")
+    //                //nameCell
+    //
+    //
+    //
+    //        let indexPath = IndexPath(row: nameCell.count - 1, section: 0)
+    //        tableView.beginUpdates()
+    //        tableView.insertRows(at: [indexPath], with: .automatic)
+    //        tableView.endUpdates()
+    //    }
+    
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -29,32 +38,34 @@ class ListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return nameCell.notesArray.count
-       
+        return nameCell.count
+        
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = nameCell.notesArray[indexPath.row].title
+        cell.textLabel?.text = nameCell[indexPath.row].title
         return cell
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVC" {
-            
+            if let path = tableView.indexPathForSelectedRow {
+                let vc = segue.destination as! ViewController
+                vc.note = self.nameCell[path.row]
+            }
+        } else if segue.identifier == "addNewCell" {
             let vc = segue.destination as! ViewController
-            vc.note = self.nameCell
+            vc.note = Note(title: "cell", body: "holla")
         }
     }
-    
-    
     
     /*
      // Override to support conditional editing of the table view.
