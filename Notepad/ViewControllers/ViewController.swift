@@ -9,24 +9,46 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtView: UITextView!
     @IBOutlet weak var bold3buttonOutlet: UIButton!
     
+    let boldOff = UIImage(named: "boldOff")
+    let boldOn = UIImage(named: "boldOn")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtView.text = note.body
         txtView.delegate = self
+        
         boldIsOn = false
-        bold3buttonOutlet.setTitle("bold off", for: .normal)
+        bold3buttonOutlet.setImage(boldOff, for: .normal)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector (updateTextView), name: UIResponder.keyboardDidShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector (updateTextView), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    @objc func updateTextView (param: Notification) {
+        let userInfo = param.userInfo
+        let keyboardRect = (userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardFrame = self.view.convert(keyboardRect, to: view.window)
+        
+        if param.name == UIResponder.keyboardWillHideNotification {
+            txtView.contentInset = UIEdgeInsets.zero
+        } else {
+            txtView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardFrame.height, right: 0)
+            txtView.scrollIndicatorInsets = txtView.contentInset
+        }
+        
+        txtView.scrollRangeToVisible(txtView.selectedRange)
+    }
     
     @IBAction func bold3(_ sender: UIButton) {
         if boldIsOn == false {
             boldIsOn = true
-            bold3buttonOutlet.setTitle("bold on", for: .normal)
+            bold3buttonOutlet.setImage(boldOn, for: .normal)
             self.txtView.font = UIFont.boldSystemFont(ofSize: 16)
             print("bold on")
         } else {
             boldIsOn = false
-            bold3buttonOutlet.setTitle("bold off", for: .normal)
+            bold3buttonOutlet.setImage(boldOff, for: .normal)
             self.txtView.font = UIFont.systemFont(ofSize: 16)
             print("bold off")
         }
@@ -37,45 +59,11 @@ class ViewController: UIViewController {
 extension ViewController: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        let firstWord = txtView.text.components(separatedBy: " ").first
-        self.note = Note(title: firstWord ?? "", body: textView.text)
-        print(firstWord!, note.body)
-        
+        note.body = txtView.text
+        note.title = txtView.text.components(separatedBy: " ").first ?? ""
     }
-    
 }
 
-//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-//
-//        if boldIsOn == true {
-//            self.txtView.font = UIFont.boldSystemFont(ofSize: 16)
-//        } else {
-//            self.txtView.font = UIFont.systemFont(ofSize: 16)
-//        }
-//
-//        return true
-//    }
-
-//        func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//            if boldIsOn == true {
-//                self.txtView.font = UIFont.boldSystemFont(ofSize: 16)
-//            } else {
-//                self.txtView.font = UIFont.systemFont(ofSize: 16)
-//            }
-//
-//            return true
-//        } // меняет всё
-
-//    func textViewDidChange(_ textView: UITextView) {
-//        for i in txtView.text {
-//            if boldIsOn == true {
-//                print(i)
-//            i.font = UIFont.boldSystemFont(ofSize: 16)
-//        } else {
-//            //String(i).font = UIFont.systemFont(ofSize: 16)
-//        }
-//        }
-//    }
 
 
 

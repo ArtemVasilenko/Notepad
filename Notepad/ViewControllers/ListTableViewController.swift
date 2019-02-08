@@ -3,17 +3,14 @@ import UIKit
 
 class ListTableViewController: UITableViewController {
     
-    var nameCell = [Note]()
     var notes = ArrNotes()
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -31,7 +28,6 @@ class ListTableViewController: UITableViewController {
         return cell
     }
     
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showVC" {
             if let path = tableView.indexPathForSelectedRow {
@@ -40,9 +36,8 @@ class ListTableViewController: UITableViewController {
             }
         } else if segue.identifier == "addNewCell" {
             let vc = segue.destination as! ViewController
-            vc.note = Note(title: "cell", body: "yo")
+            vc.note = Note(title: "", body: "")
             notes.arrNotes.append(vc.note)
         }
     }
-    
 }

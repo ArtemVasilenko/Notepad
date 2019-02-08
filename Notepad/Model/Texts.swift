@@ -1,8 +1,7 @@
-
 import Foundation
 
+
 class Note {
-    
     var title: String
     var body: String
     
@@ -11,9 +10,8 @@ class Note {
         self.title = title
     }
 }
-
-class ArrNotes {
-    var arrNotes = [Note(title: "", body: "")]
+struct ArrNotes {
+    var arrNotes = [Note]()
 }
 
 
