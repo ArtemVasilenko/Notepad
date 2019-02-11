@@ -15,10 +15,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.txtView.text = note.body
-        txtView.delegate = self
-        
-        boldIsOn = false
-        bold3buttonOutlet.setImage(boldOff, for: .normal)
+        self.txtView.delegate = self
+        self.boldIsOn = false
+        self.bold3buttonOutlet.setImage(boldOff, for: .normal)
         
         NotificationCenter.default.addObserver(self, selector: #selector (updateTextView), name: UIResponder.keyboardDidShowNotification, object: nil)
         
@@ -40,18 +39,22 @@ class ViewController: UIViewController {
         txtView.scrollRangeToVisible(txtView.selectedRange)
     }
     
-    @IBAction func bold3(_ sender: UIButton) {
+    fileprivate func bold() {
         if boldIsOn == false {
             boldIsOn = true
-            bold3buttonOutlet.setImage(boldOn, for: .normal)
-            self.txtView.font = UIFont.boldSystemFont(ofSize: 16)
+            self.bold3buttonOutlet.setImage(boldOn, for: .normal)
+            self.txtView.font = UIFont.boldSystemFont(ofSize: 14)
             print("bold on")
         } else {
             boldIsOn = false
-            bold3buttonOutlet.setImage(boldOff, for: .normal)
-            self.txtView.font = UIFont.systemFont(ofSize: 16)
+            self.bold3buttonOutlet.setImage(boldOff, for: .normal)
+            self.txtView.font = UIFont.systemFont(ofSize: 14)
             print("bold off")
         }
+    }
+    
+    @IBAction func boldButton(_ sender: UIButton) {
+        bold()
     }
     
 }
@@ -61,6 +64,11 @@ extension ViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         note.body = txtView.text
         note.title = txtView.text.components(separatedBy: " ").first ?? ""
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        print("touchBegan")
     }
 }
 

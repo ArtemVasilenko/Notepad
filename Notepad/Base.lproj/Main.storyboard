@@ -28,7 +28,7 @@
                                 <rect key="frame" x="17" y="436" width="68" height="75"/>
                                 <state key="normal" image="boldOff"/>
                                 <connections>
-                                    <action selector="bold3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zg6-6D-7TJ"/>
+                                    <action selector="boldButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zg6-6D-7TJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,17 +80,61 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="oTC-1c-kbd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KRS-LB-q0l">
-                            <connections>
-                                <action selector="addNewCell:" destination="kCo-sS-x5h" id="uLv-Yu-VTd"/>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="addNewCell" id="WA3-9T-ELR"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="KRS-LB-q0l">
+                                <connections>
+                                    <action selector="addNewCell:" destination="kCo-sS-x5h" id="uLv-Yu-VTd"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="addNewCell" id="WA3-9T-ELR"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="compose" id="351-Z1-DlT">
+                                <connections>
+                                    <segue destination="bpG-xB-RXF" kind="show" id="qKn-m5-wfy"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEs-ds-qrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="880" y="229"/>
+        </scene>
+        <!--Drawing View Controller-->
+        <scene sceneID="HuL-2J-0Jj">
+            <objects>
+                <viewController id="bpG-xB-RXF" customClass="DrawingViewController" customModule="Notepad" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CWe-fu-cE4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="njj-7Y-Yvw">
+                                <rect key="frame" x="16" y="64" width="343" height="583"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rct-zk-ZSe">
+                                <rect key="frame" x="16" y="64" width="343" height="583"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j8g-Pd-0of" firstAttribute="bottom" secondItem="Rct-zk-ZSe" secondAttribute="bottom" constant="20" id="0Rx-D3-hvg"/>
+                            <constraint firstItem="j8g-Pd-0of" firstAttribute="trailing" secondItem="njj-7Y-Yvw" secondAttribute="trailing" constant="16" id="Cit-3a-zkH"/>
+                            <constraint firstItem="Rct-zk-ZSe" firstAttribute="top" secondItem="j8g-Pd-0of" secondAttribute="top" id="PtN-2j-knZ"/>
+                            <constraint firstItem="njj-7Y-Yvw" firstAttribute="leading" secondItem="j8g-Pd-0of" secondAttribute="leading" constant="16" id="WbJ-Ec-Eys"/>
+                            <constraint firstItem="Rct-zk-ZSe" firstAttribute="leading" secondItem="j8g-Pd-0of" secondAttribute="leading" constant="16" id="YUd-dC-6hl"/>
+                            <constraint firstItem="j8g-Pd-0of" firstAttribute="trailing" secondItem="Rct-zk-ZSe" secondAttribute="trailing" constant="16" id="iK4-pH-jTh"/>
+                            <constraint firstItem="njj-7Y-Yvw" firstAttribute="top" secondItem="j8g-Pd-0of" secondAttribute="top" id="iQO-GR-fiy"/>
+                            <constraint firstItem="j8g-Pd-0of" firstAttribute="bottom" secondItem="njj-7Y-Yvw" secondAttribute="bottom" constant="20" id="lpI-PP-gaC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j8g-Pd-0of"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainImageView" destination="njj-7Y-Yvw" id="CMS-IA-Nlh"/>
+                        <outlet property="tempImageView" destination="Rct-zk-ZSe" id="0c2-i2-dlm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6y5-xe-kjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877.60000000000002" y="1013.3433283358322"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p30-iN-uPR">

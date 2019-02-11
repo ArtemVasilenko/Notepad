@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AC15EAD9220DDECF005FF084 /* FM.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC15EAD8220DDECF005FF084 /* FM.swift */; };
 		AC15EADB2211688D005FF084 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC15EADA2211688D005FF084 /* Model.swift */; };
+		AC15EADD2211852A005FF084 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC15EADC2211852A005FF084 /* DrawingViewController.swift */; };
 		AC3C995F22034D2F00A1C6AD /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3C995E22034D2F00A1C6AD /* ListTableViewController.swift */; };
 		AC3C996422035BB400A1C6AD /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3C996322035BB400A1C6AD /* Texts.swift */; };
 		ACE556CA2202F314007A8D1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE556C92202F314007A8D1D /* AppDelegate.swift */; };
@@ -19,8 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC15EAD8220DDECF005FF084 /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FM.swift; sourceTree = "<group>"; };
+		AC15EAD8220DDECF005FF084 /* FM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FM.swift; path = ../ViewControllers/FM.swift; sourceTree = "<group>"; };
 		AC15EADA2211688D005FF084 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AC15EADC2211852A005FF084 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		AC3C995E22034D2F00A1C6AD /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
 		AC3C996322035BB400A1C6AD /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		ACE556C62202F314007A8D1D /* Notepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -46,6 +48,7 @@
 		AC3C996222035AE400A1C6AD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AC15EAD8220DDECF005FF084 /* FM.swift */,
 				AC3C996322035BB400A1C6AD /* Texts.swift */,
 				AC15EADA2211688D005FF084 /* Model.swift */,
 			);
@@ -64,8 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				ACE556CB2202F314007A8D1D /* ViewController.swift */,
-				AC15EAD8220DDECF005FF084 /* FM.swift */,
 				AC3C995E22034D2F00A1C6AD /* ListTableViewController.swift */,
+				AC15EADC2211852A005FF084 /* DrawingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				AC3C995F22034D2F00A1C6AD /* ListTableViewController.swift in Sources */,
 				ACE556CC2202F314007A8D1D /* ViewController.swift in Sources */,
 				AC3C996422035BB400A1C6AD /* Texts.swift in Sources */,
+				AC15EADD2211852A005FF084 /* DrawingViewController.swift in Sources */,
 				AC15EADB2211688D005FF084 /* Model.swift in Sources */,
 				AC15EAD9220DDECF005FF084 /* FM.swift in Sources */,
 				ACE556CA2202F314007A8D1D /* AppDelegate.swift in Sources */,

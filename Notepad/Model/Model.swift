@@ -7,5 +7,4 @@ extension NoteProtocol {
     func reloadArrayNotes (notes: Note) {
         ArrNotes.arrNotes.append(notes)
     }
-    
 }
