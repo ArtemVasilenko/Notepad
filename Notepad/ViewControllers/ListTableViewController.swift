@@ -1,9 +1,7 @@
 
 import UIKit
 
-class ListTableViewController: UITableViewController {
-    
-    var notes = ArrNotes()
+class ListTableViewController: UITableViewController, NoteProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
@@ -18,13 +16,13 @@ class ListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.arrNotes.count
+        return ArrNotes.arrNotes.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = notes.arrNotes[indexPath.row].title
+        cell.textLabel?.text = ArrNotes.arrNotes[indexPath.row].title
         return cell
     }
     
@@ -32,12 +30,12 @@ class ListTableViewController: UITableViewController {
         if segue.identifier == "showVC" {
             if let path = tableView.indexPathForSelectedRow {
                 let vc = segue.destination as! ViewController
-                vc.note = notes.arrNotes[path.row]
+                vc.note = ArrNotes.arrNotes[path.row]
             }
         } else if segue.identifier == "addNewCell" {
             let vc = segue.destination as! ViewController
             vc.note = Note(title: "", body: "")
-            notes.arrNotes.append(vc.note)
+            reloadArrayNotes(notes: vc.note)
         }
     }
 }

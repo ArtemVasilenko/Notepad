@@ -11,7 +11,7 @@ class Note {
     }
 }
 struct ArrNotes {
-    var arrNotes = [Note]()
+    static var arrNotes = [Note]()
 }
 
 
